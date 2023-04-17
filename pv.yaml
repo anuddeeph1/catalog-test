@@ -1,67 +1,44 @@
----
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv
+  name: pv1
+  labels:
+    type: local
 spec:
+  storageClassName: local-path
   capacity:
     storage: 5Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-path
-  local:
-    path: /mnt/data
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - test-se-dev-hg-50016
+  hostPath:
+    path: "/mnt/data"
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv2
+  labels:
+    type: local
 spec:
+  storageClassName: local-path
   capacity:
     storage: 5Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-path
-  local:
-    path: /mnt/data
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - test-se-dev-hg-50016
+  hostPath:
+    path: "/mnt/data"
 ---
-
 apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv3
+  labels:
+    type: local
 spec:
+  storageClassName: local-path
   capacity:
     storage: 5Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-path
-  local:
-    path: /mnt/data
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - test-se-dev-hg-50016
+  hostPath:
+    path: "/mnt/data"
