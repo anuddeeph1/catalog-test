@@ -22,6 +22,12 @@ spec:
           mountPath: /data2
         - name: my-volume3
           mountPath: /data3
+        - name: my-volume4
+          mountPath: /data4
+        - name: my-volume5
+          mountPath: /data5
+        - name: my-volume6
+          mountPath: /data6
       volumes:
       - name: my-volume1
         persistentVolumeClaim:
@@ -32,3 +38,12 @@ spec:
       - name: my-volume3
         persistentVolumeClaim:
           claimName: pvc3
+      - name: my-volume4
+        persistentVolumeClaim:
+          claimName: pvc4
+      - name: my-volume5
+        persistentVolumeClaim:
+          claimName: pvc5
+      - name: my-volume6
+        persistentVolumeClaim:
+          claimName: pvc6
