@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpd
+  template:
+    metadata:
+      labels:
+        app: httpd
+    spec:
+      containers:
+      - name: httpd
+        image: anuddeeph/apache-webserver-php
+        volumeMounts:
+        - name: my-volume1
+          mountPath: /data1
+        - name: my-volume2
+          mountPath: /data2
+        - name: my-volume3
+          mountPath: /data3
+      volumes:
+      - name: my-volume1
+        persistentVolumeClaim:
+          claimName: pvc1
+      - name: my-volume2
+        persistentVolumeClaim:
+          claimName: pvc2
+      - name: my-volume3
+        persistentVolumeClaim:
+          claimName: pvc3
